@@ -18,7 +18,7 @@
       z-index: 0;
       overflow-y: auto;
     }
-    /* Imagen de fondo con overlay y difuminado para toda la página */
+    /* Imagen de fondo con overlay y difuminado para toda la página (opacidad 0.5) */
     body::before {
       content: "";
       position: fixed;
@@ -95,8 +95,7 @@
     }
     .buttons {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      justify-content: center; /* Centra el único botón */
       margin-top: 20px;
     }
     .button {
@@ -109,11 +108,6 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-    }
-    .button.outline {
-      background-color: transparent;
-      border: 2px solid white;
-      color: white;
     }
     .button.white {
       background-color: white;
@@ -146,12 +140,38 @@
       color: white;
     }
     
+    /* Sección de Chat de Pickaxe */
+    #pickaxe-inline-Casa_Virtudes_TT6SI {
+      width: 100%;
+      max-width: 600px; /* Limita el ancho para centrarlo */
+      background: transparent !important;
+      margin: 20px auto 0;
+      text-align: center;
+    }
+    
+    /* Footer */
+    .footer {
+      background: black;
+      color: white;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 0.75rem;
+      margin-top: 20px;
+    }
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
     /* Estilos para pantallas más grandes */
     @media (min-width: 600px) {
       .container { padding: 20px; }
       .hero {
          padding: 80px 20px;
-         min-height: 50vh;
+         /* Sin min-height forzada, se ajusta al contenido */
       }
       .antetitle {
          font-size: 1.2rem;
@@ -172,8 +192,7 @@
          margin: 40px auto 20px;
       }
       .buttons {
-         flex-direction: row;
-         gap: 15px;
+         justify-content: center;
          margin-top: 30px;
       }
       .button {
@@ -182,13 +201,23 @@
       }
       .founders {
          margin: 20px 0;
-	min-height: 30vh;
+      }
+      #pickaxe-inline-Casa_Virtudes_TT6SI {
+         margin: 40px auto 0;
+      }
+      .footer {
+         font-size: 1rem;
+         padding: 20px 30px;
+      }
+      .footer-content {
+         max-width: 600px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Sección Hero -->
     <div class="hero">
       <div class="antetitle">
         Grandes almacenes de inteligencia artificial
@@ -199,12 +228,11 @@
           <span class="dynamic-title" id="dynamic-title"></span>
         </h1>
         <p>
-          Inteligencia artificial personalizada para ahorrar tiempo y recursos. Herramientas sencillas para mejorar procesos y contenidos.
+          Asesoría en la utilización de herramientas de inteligencia artificial en su negocio. Mejora de procesos. Productos sencillos que permiten ahorrar tiempo y recursos. Servicio personalizado y cercano.
         </p>
       </div>
       <div class="buttons">
-        <a href="https://sites.google.com/view/casa-virtudes/inicio/qui%C3%A9nes-somos" class="button outline">Conócenos</a>
-        <a href="https://sites.google.com/view/casa-virtudes/inicio/servicio" class="button white">¿Hablamos?</a>
+        <a href="mailto:casademaquinasydatos@gmail.com" class="button white">¿Hablamos?</a>
       </div>
     </div>
     
@@ -219,7 +247,18 @@
         <p>Alberto de Oliveira, fundador</p>
       </div>
     </div>
+    
+    <!-- Sección para el Chat de Pickaxe -->
+    <div id="pickaxe-inline-Casa_Virtudes_TT6SI"></div>
   </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="footer-left">©CasaVirtudes2025</span>
+      <span class="footer-right">casademaquinasydatos@gmail.com</span>
+    </div>
+  </footer>
   
   <!-- Script para el contenido dinámico -->
   <script>
@@ -245,6 +284,26 @@
       spans[currentIndex].classList.add("active");
     }, 2600);
   </script>
+  
+  <!-- Script para incorporar el Chat de Pickaxe -->
+  <script>
+    window.PICKAXE = window.PICKAXE || {
+      pickaxes: [],
+      style: "kHsjoCQGgI0GWASmgIdIAxiDA6wgM6CMbgC4UgDDAXYEAvDIBoGEBgG4CAWQIGYBgwCqApdoEjggjIaCcCoCA9gVAaAnBYBkqgBkKBwWoARYgJhrAFwqAFQEAHkIAXAQAASgbCfAhqSAAAsDEAYEc+QJckgGXFAhUGBQ30DEcIGo0wBBdgS5VAcAaATm8A1GoCpYQJQmgEVZAAMiAIMED2QYC4hQCISgAAVAauyADoqAQRWANLCAWEKAIgyAAAiACEoA+oB6QADwgBpIgBEfgAkigGkogCEsAG6ACTCAOTSAJT2ATrCAQUmAQhaAEHyAJ3SAgysAaIBxbIA/O4B9eYAYCYBJOICFgIBfiYAjjQBqgDeUgHeZgEt7gFWhgKlSgF2HgGVhgBcTgLtvgEN1gC+fgEwqgA2igAxIgE4UgM/dAOKAMoqAWOKAiFwAYIBAC4CIF4BhGIAIDIBQhIBBYIAFHoBcKIAoWMA4OGAAAnAAUpgGIagBAgHRpQAMQgAUQAaFIAuZ0AAQiAF6AooAxzMATOGAODRAKhhgACQwAWioAyEsA6NyAR5jAJJIgCmTQAhBoBgAcAHCaACobAGxSgFYmQAluIBGk8AH46ASz3AHEEgHKpQCXIYAmEEAMFSAQNhANKFgAJNwA+moAc8sAKlKAVQDAIlBgE3DQCBoIADQ0ADBSAbgXAPfLgEAEwDdkYAz3cAohKAADBAMhAgBPjwCBRYByiMAy3WAN0BAAUIgDAaQAQSIB0VkAigyATRrACoCgFXwQAXoYBjccATGeAMAxALfhgC73QCau4ApnMA58GAeNdAIRggBXCwBQo4AokcA6AKAcOhAFgygHEwwAGKoBisUAop+AcFjAGNRgBPCQBarIA/XMAoNKAA0rAAengAEQQAqDYBdskA4fCAReJAIHVgD5AQDyQYBlRsAp5eAbAnAPncgAIXwDhdYBCCUAAJiARrBABrFgBFcQA6AoBBBUAgAiAGyXAFrlgFUnwAAiYAtn8ACtxACEXQA4MEAVOLAHufQAt80AXtRACN9wAoHIAACAA=="
+    };
+    window.PICKAXE.pickaxes.push({ id: "Casa_Virtudes_TT6SI", type: "inline" });
+    const { id: _fid } = window.PICKAXE.pickaxes[0];
+    fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`)
+      .then((e) => e.json())
+      .then(({ v: e }) => {
+        const t = `https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;
+        if (!document.querySelector(`script[src="${t}/bundle.js"]`)) {
+          const s = document.createElement("script");
+          s.src = t + "/bundle.js";
+          s.defer = true;
+          document.head.appendChild(s);
+        }
+      });
+  </script>
 </body>
 </html>
-
