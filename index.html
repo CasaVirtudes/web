@@ -271,11 +271,16 @@
   <!-- Script para el contenido dinámico -->
   <script>
     const titles = [
-      "innovación y tradición",
-      "experiencia y aprendizaje",
-      "inteligencia y sentido común",
-      "tecnología y creatividad",
-      "una solución y un nuevo reto"
+      "innovación",
+      "tradición",
+      "experiencia",
+      "aprendizaje",
+      "inteligencia",
+      "sentido común",
+      "tecnología",
+      "creatividad",
+      "una solución",
+      "un reto"
     ];
     const dynamicTitle = document.getElementById("dynamic-title");
     titles.forEach((title, index) => {
@@ -290,7 +295,7 @@
       spans[currentIndex].classList.remove("active");
       currentIndex = (currentIndex + 1) % titles.length;
       spans[currentIndex].classList.add("active");
-    }, 2600);
+    }, 2000);
   </script>
   
  
