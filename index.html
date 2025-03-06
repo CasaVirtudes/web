@@ -109,6 +109,7 @@
       gap: 8px;
       text-decoration: none;
     }
+    /* Se mantiene solo el botón "¿Hablamos?" con enlace mailto */
     .button.white {
       background-color: white;
       color: black;
@@ -123,6 +124,13 @@
       gap: 20px;
       margin: 20px 0;
       padding: 0 10px;
+    }
+    /* Título para la sección de fundadores */
+    .founders h2 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
     }
     .founder {
       flex: 1 1 280px;
@@ -171,7 +179,7 @@
       .container { padding: 20px; }
       .hero {
          padding: 80px 20px;
-         /* Sin min-height forzada, se ajusta al contenido */
+         /* Se ajusta al contenido, sin forzar 100vh */
       }
       .antetitle {
          font-size: 1.2rem;
@@ -192,8 +200,8 @@
          margin: 40px auto 20px;
       }
       .buttons {
-         justify-content: center;
          margin-top: 30px;
+         justify-content: center;
       }
       .button {
          padding: 10px 20px;
@@ -227,7 +235,9 @@
           <span class="static-title">Casa Virtudes es</span>
           <span class="dynamic-title" id="dynamic-title"></span>
         </h1>
-        
+        <p>
+          Asesoría en la utilización de herramientas de inteligencia artificial en su negocio. Mejora de procesos. Productos sencillos que permiten ahorrar tiempo y recursos. Servicio personalizado y cercano.
+        </p>
       </div>
       <div class="buttons">
         <a href="mailto:casademaquinasydatos@gmail.com" class="button white">¿Hablamos?</a>
@@ -236,17 +246,37 @@
     
     <!-- Sección de Fundadores -->
     <div class="founders">
+      <h2>Fundadores</h2>
       <div class="founder">
         <img src="http://www.suhistoria.es/wp-content/uploads/2025/03/Leonardo_Vision_XL_A_vintage_photograph_captures_a_man_on_the_2.webp" alt="Carlos del Águila" />
-        <p>Carlos del Águila, fundador</p>
+        <p>Sr. D. Carlos del Águila, fundador</p>
       </div>
       <div class="founder">
         <img src="http://www.suhistoria.es/wp-content/uploads/2025/03/Leonardo_Kino_XL_A_non_restored_vintage_photograph_from_the_ea_0-1.webp" alt="Alberto de Oliveira" />
-        <p>Alberto de Oliveira, fundador</p>
+        <p>Sr. D. Alberto de Oliveira, fundador</p>
       </div>
     </div>
     
-    <!-- Sección para el Chat de Pickaxe -->
+    <!-- Sección para el Chat de Pickaxe con el nuevo código -->
+    <script>
+      window.PICKAXE = window.PICKAXE || {
+        pickaxes: [],
+        style: "kHsjoCQGgI0GWASmgIdIAxiDA6wgM6CMbgC4UgDDAXYEAvDIBoGEBgG4CAWQIGYBgwCqApdoEjggjIaCcCoCA9gVAaAnBYBkqgBkKBwWoARYgJhrAFwqAFQEAHkIAXAQAASgbCfAhqSAAAsDEAYEc+QJckgGXFAhUGBQ30DEcIGo0wBBdgS5VAcAaATm8A1GoCpYQJQmgEVZAAMiAIMED2QYC4hQCISgAAVAauyADoqAQRWANLCAWEKAIgyAAAiACEoA+oB6QADwgBpIgBEfgAkigGkogCEsgBcSgDQJgD05gEQlgAlLgEIWgBB8gCdygIMrgDNogDs3gHc/gDlNgHxJgIWBgIlfgAAjgDBqgJFtgG1zgElPgFVNgJ9SgF2DgGVhgLGNgJVxgAm7gCougBhMgEiUgBQMgLVOgADPgIrigOIygC5YgAAigAC2gIF0gBGIgEDGgAg/gBYFgFHkgMKAgAsVgA4VgAE+gClIQBDUIAABkAiqSAYhcAICAUKFAMzhgAhCgD0gADFQDhwIAhMsAC4OABCHADwJgBRGQCigYBGYsAOnmABj9ALJJgAAMQBeG4AqGkAsUiACHDAJbigBpMwBqMIAE3kAhBKASWRAACHgFJoQBgrIABsEAoYuABJjAEUYgGm1QDS44AdOsA9Q+AGvJAANBgAaGwAOKIBIC0A70eAAAnALejgGe4QBEEIAAYMAkICAJ8fAPSKgEkRQCWe4BtoMAChCAYDRALCQgGirwAUGYAaNcAU/GAK6hALcDgENhQCYz4BgGEAruKAXC3ACdvgFMrwBPMoAwzcAA76AHX7AKFGgFDTQDMhIA8zUAsGWAYmFAIxVgEHgQC9P4BgscAxqOAJ4RAEwggFamQBJ+oAqYcAnBqAQA9ADQIgGhUQC/a4ACwEANhOAfEvAOLCgEcNwCbIYA2UcA7xmAIpZABK8gExCABggGLGwC0moB8EUACjmABEEJIBxGsARVOARNVAJ6AgFeNQAuFYAwIUAxXCAXtTAHr8wBlg0ADS/AC/6gAAIA=="
+      };
+      window.PICKAXE.pickaxes.push({ id: "Casa_Virtudes_TT6SI", type: "inline" });
+      const { id: _fid } = window.PICKAXE.pickaxes[0];
+      fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`)
+        .then((e) => e.json())
+        .then(({ v: e }) => {
+          const t = `https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;
+          if (!document.querySelector(`script[src="${t}/bundle.js"]`)) {
+            const s = document.createElement("script");
+            s.src = t + "/bundle.js";
+            s.defer = true;
+            document.head.appendChild(s);
+          }
+        });
+    </script>
     <div id="pickaxe-inline-Casa_Virtudes_TT6SI"></div>
   </div>
   
@@ -261,16 +291,11 @@
   <!-- Script para el contenido dinámico -->
   <script>
     const titles = [
-      "innovación",
-      "tradición",
-      "experiencia",
-      "aprendizaje",
-      "inteligencia",
-      "sentido común",
-      "tecnología",
-      "creatividad",
-      "una solución",
-      "un reto"
+      "innovación y tradición",
+      "experiencia y aprendizaje",
+      "inteligencia y sentido común",
+      "tecnología y creatividad",
+      "una solución y un nuevo reto"
     ];
     const dynamicTitle = document.getElementById("dynamic-title");
     titles.forEach((title, index) => {
@@ -286,27 +311,6 @@
       currentIndex = (currentIndex + 1) % titles.length;
       spans[currentIndex].classList.add("active");
     }, 2600);
-  </script>
-  
-  <!-- Script para incorporar el Chat de Pickaxe -->
-  <script>
-    window.PICKAXE = window.PICKAXE || {
-      pickaxes: [],
-      style: "kHsjoCQGgI0GWASmgIdIAxiDA6wgM6CMbgC4UgDDAXYEAvDIBoGEBgG4CAWQIGYBgwCqApdoEjggjIaCcCoCA9gVAaAnBYBkqgBkKBwWoARYgJhrAFwqAFQEAHkIAXAQAASgbCfAhqSAAAsDEAYEc+QJckgGXFAhUGBQ30DEcIGo0wBBdgS5VAcAaATm8A1GoCpYQJQmgEVZAAMiAIMED2QYC4hQCISgAAVAauyADoqAQRWANLCAWEKAIgyAAAiACEoA+oB6QADwgBpIgBEfgAkigGkogCEsAG6ACTCAOTSAJT2ATrCAQUmAQhaAEHyAJ3SAgysAaIBxbIA/O4B9eYAYCYBJOICFgIBfiYAjjQBqgDeUgHeZgEt7gFWhgKlSgF2HgGVhgBcTgLtvgEN1gC+fgEwqgA2igAxIgE4UgM/dAOKAMoqAWOKAiFwAYIBAC4CIF4BhGIAIDIBQhIBBYIAFHoBcKIAoWMA4OGAAAnAAUpgGIagBAgHRpQAMQgAUQAaFIAuZ0AAQiAF6AooAxzMATOGAODRAKhhgACQwAWioAyEsA6NyAR5jAJJIgCmTQAhBoBgAcAHCaACobAGxSgFYmQAluIBGk8AH46ASz3AHEEgHKpQCXIYAmEEAMFSAQNhANKFgAJNwA+moAc8sAKlKAVQDAIlBgE3DQCBoIADQ0ADBSAbgXAPfLgEAEwDdkYAz3cAohKAADBAMhAgBPjwCBRYByiMAy3WAN0BAAUIgDAaQAQSIB0VkAigyATRrACoCgFXwQAXoYBjccATGeAMAxALfhgC73QCau4ApnMA58GAeNdAIRggBXCwBQo4AokcA6AKAcOhAFgygHEwwAGKoBisUAop+AcFjAGNRgBPCQBarIA/XMAoNKAA0rAAengAEQQAqDYBdskA4fCAReJAIHVgD5AQDyQYBlRsAp5eAbAnAPncgAIXwDhdYBCCUAAJiARrBABrFgBFcQA6AoBBBUAgAiAGyXAFrlgFUnwAAiYAtn8ACtxACEXQA4MEAVOLAHufQAt80AXtRACN9wAoHIAACAA=="
-    };
-    window.PICKAXE.pickaxes.push({ id: "Casa_Virtudes_TT6SI", type: "inline" });
-    const { id: _fid } = window.PICKAXE.pickaxes[0];
-    fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`)
-      .then((e) => e.json())
-      .then(({ v: e }) => {
-        const t = `https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;
-        if (!document.querySelector(`script[src="${t}/bundle.js"]`)) {
-          const s = document.createElement("script");
-          s.src = t + "/bundle.js";
-          s.defer = true;
-          document.head.appendChild(s);
-        }
-      });
   </script>
 </body>
 </html>
