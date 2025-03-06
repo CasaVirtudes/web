@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hero Section Responsive</title>
+  <title>Casa Virtudes - Inteligencia Artificial</title>
+  
+  <!-- Estilos principales (mobile-first) -->
   <style>
-    /* Estilos base (mobile-first) */
+    /* Estilos base */
     body {
       margin: 0;
       padding: 0;
@@ -14,10 +16,9 @@
       color: white;
       position: relative;
       z-index: 0;
-      /* Permitir scroll en caso de que el contenido exceda el alto */
       overflow-y: auto;
     }
-    /* Imagen de fondo con overlay y difuminado */
+    /* Imagen de fondo con overlay y difuminado para toda la página */
     body::before {
       content: "";
       position: fixed;
@@ -26,7 +27,7 @@
       right: 0;
       bottom: 0;
       background: 
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url('http://www.suhistoria.es/wp-content/uploads/2025/03/20250305-Casa-Virtudes-de-Maquinas-y-Datos14.jpg') no-repeat center center;
       background-size: cover;
       filter: blur(2px);
@@ -38,7 +39,7 @@
       padding: 10px;
       box-sizing: border-box;
     }
-    /* Hero sin forzar 100vh para móviles */
+    /* Sección Hero */
     .hero {
       display: flex;
       flex-direction: column;
@@ -70,6 +71,7 @@
       min-height: 4em;
       overflow: hidden;
       white-space: normal;
+      margin-bottom: 1em; /* Separa este bloque del contenido siguiente */
     }
     .dynamic-title span {
       position: absolute;
@@ -119,12 +121,37 @@
       border: none;
     }
     
+    /* Sección de Fundadores */
+    .founders {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+    .founder {
+      flex: 1 1 280px;
+      max-width: 300px;
+      text-align: center;
+    }
+    .founder img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .founder p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: white;
+    }
+    
     /* Estilos para pantallas más grandes */
     @media (min-width: 600px) {
       .container { padding: 20px; }
       .hero {
          padding: 80px 20px;
-         min-height: 100vh;
+         min-height: 50vh;
       }
       .antetitle {
          font-size: 1.2rem;
@@ -153,6 +180,10 @@
          padding: 10px 20px;
          font-size: 16px;
       }
+      .founders {
+         margin: 20px 0;
+	min-height: 30vh;
+      }
     }
   </style>
 </head>
@@ -168,7 +199,7 @@
           <span class="dynamic-title" id="dynamic-title"></span>
         </h1>
         <p>
-          Asesoría en la utilización de herramientas de inteligencia artificial en su negocio. Mejora de procesos. Productos sencillos que permiten ahorrar tiempo y recursos. Servicio personalizado y cercano.
+          Inteligencia artificial personalizada para ahorrar tiempo y recursos. Herramientas sencillas para mejorar procesos y contenidos.
         </p>
       </div>
       <div class="buttons">
@@ -176,8 +207,21 @@
         <a href="https://sites.google.com/view/casa-virtudes/inicio/servicio" class="button white">¿Hablamos?</a>
       </div>
     </div>
+    
+    <!-- Sección de Fundadores -->
+    <div class="founders">
+      <div class="founder">
+        <img src="https://lh5.googleusercontent.com/qkxNq_xWvuSH97iud7igSzLzREtLqFWFoGhcQgr8o2mXRr3ZTVokqOWjOdOFyAmOnsMDsFvH2o77OB1obSPu9luGb6gi08MY7ECiwzVtQhHmQnmsmDXp2le0W8_yHARQ6Q=w1280" alt="Carlos del Águila" />
+        <p>Carlos del Águila, fundador</p>
+      </div>
+      <div class="founder">
+        <img src="https://lh6.googleusercontent.com/I3uo7azaT8xucgMrg2XxDu00aHiAgkbX7SS5V4oxkV6t_M2p4K2tB4s2WxMaPbU2ogD5UlY5kvcC9rWiH9-IZEyrB3-nUVAkemj8AIjzff89uGZWWXEa2fZwYV2mGhLsNQ=w1280" alt="Alberto de Oliveira" />
+        <p>Alberto de Oliveira, fundador</p>
+      </div>
+    </div>
   </div>
   
+  <!-- Script para el contenido dinámico -->
   <script>
     const titles = [
       "innovación y tradición",
@@ -193,7 +237,6 @@
       if (index === 0) span.classList.add("active");
       dynamicTitle.appendChild(span);
     });
-    
     let currentIndex = 0;
     setInterval(() => {
       const spans = dynamicTitle.getElementsByTagName("span");
@@ -204,3 +247,4 @@
   </script>
 </body>
 </html>
+
