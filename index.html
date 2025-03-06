@@ -95,7 +95,7 @@
     }
     .buttons {
       display: flex;
-      justify-content: center; /* Centra el único botón */
+      justify-content: center;
       margin-top: 20px;
     }
     .button {
@@ -109,7 +109,7 @@
       gap: 8px;
       text-decoration: none;
     }
-    /* Se mantiene solo el botón "¿Hablamos?" con enlace mailto */
+    /* Se mantiene solo el botón "¿Hablamos?" con mailto */
     .button.white {
       background-color: white;
       color: black;
@@ -125,7 +125,7 @@
       margin: 20px 0;
       padding: 0 10px;
     }
-    /* Título para la sección de fundadores */
+    /* Título para la sección de Fundadores */
     .founders h2 {
       width: 100%;
       text-align: center;
@@ -149,9 +149,9 @@
     }
     
     /* Sección de Chat de Pickaxe */
-    #pickaxe-inline-Casa_Virtudes_TT6SI {
+    .chat-container {
       width: 100%;
-      max-width: 600px; /* Limita el ancho para centrarlo */
+      max-width: 600px;  /* Limita el ancho para centrarlo */
       background: transparent !important;
       margin: 20px auto 0;
       text-align: center;
@@ -179,7 +179,6 @@
       .container { padding: 20px; }
       .hero {
          padding: 80px 20px;
-         /* Se ajusta al contenido, sin forzar 100vh */
       }
       .antetitle {
          font-size: 1.2rem;
@@ -210,9 +209,6 @@
       .founders {
          margin: 20px 0;
       }
-      #pickaxe-inline-Casa_Virtudes_TT6SI {
-         margin: 40px auto 0;
-      }
       .footer {
          font-size: 1rem;
          padding: 20px 30px;
@@ -236,7 +232,7 @@
           <span class="dynamic-title" id="dynamic-title"></span>
         </h1>
         <p>
-          Asesoría en la utilización de herramientas de inteligencia artificial en su negocio. Mejora de procesos. Productos sencillos que permiten ahorrar tiempo y recursos. Servicio personalizado y cercano.
+          Inteligencia artificial con sentido común para su negocio. Servicio personalizado para mejorar procesos, ahorrar tiempo y recursos, aumentar la productividad y la rentabilidad, optimizar el ROI. 
         </p>
       </div>
       <div class="buttons">
@@ -258,26 +254,10 @@
     </div>
     
     <!-- Sección para el Chat de Pickaxe con el nuevo código -->
-    <script>
-      window.PICKAXE = window.PICKAXE || {
-        pickaxes: [],
-        style: "kHsjoCQGgI0GWASmgIdIAxiDA6wgM6CMbgC4UgDDAXYEAvDIBoGEBgG4CAWQIGYBgwCqApdoEjggjIaCcCoCA9gVAaAnBYBkqgBkKBwWoARYgJhrAFwqAFQEAHkIAXAQAASgbCfAhqSAAAsDEAYEc+QJckgGXFAhUGBQ30DEcIGo0wBBdgS5VAcAaATm8A1GoCpYQJQmgEVZAAMiAIMED2QYC4hQCISgAAVAauyADoqAQRWANLCAWEKAIgyAAAiACEoA+oB6QADwgBpIgBEfgAkigGkogCEsgBcSgDQJgD05gEQlgAlLgEIWgBB8gCdygIMrgDNogDs3gHc/gDlNgHxJgIWBgIlfgAAjgDBqgJFtgG1zgElPgFVNgJ9SgF2DgGVhgLGNgJVxgAm7gCougBhMgEiUgBQMgLVOgADPgIrigOIygC5YgAAigAC2gIF0gBGIgEDGgAg/gBYFgFHkgMKAgAsVgA4VgAE+gClIQBDUIAABkAiqSAYhcAICAUKFAMzhgAhCgD0gADFQDhwIAhMsAC4OABCHADwJgBRGQCigYBGYsAOnmABj9ALJJgAAMQBeG4AqGkAsUiACHDAJbigBpMwBqMIAE3kAhBKASWRAACHgFJoQBgrIABsEAoYuABJjAEUYgGm1QDS44AdOsA9Q+AGvJAANBgAaGwAOKIBIC0A70eAAAnALejgGe4QBEEIAAYMAkICAJ8fAPSKgEkRQCWe4BtoMAChCAYDRALCQgGirwAUGYAaNcAU/GAK6hALcDgENhQCYz4BgGEAruKAXC3ACdvgFMrwBPMoAwzcAA76AHX7AKFGgFDTQDMhIA8zUAsGWAYmFAIxVgEHgQC9P4BgscAxqOAJ4RAEwggFamQBJ+oAqYcAnBqAQA9ADQIgGhUQC/a4ACwEANhOAfEvAOLCgEcNwCbIYA2UcA7xmAIpZABK8gExCABggGLGwC0moB8EUACjmABEEJIBxGsARVOARNVAJ6AgFeNQAuFYAwIUAxXCAXtTAHr8wBlg0ADS/AC/6gAAIA=="
-      };
-      window.PICKAXE.pickaxes.push({ id: "Casa_Virtudes_TT6SI", type: "inline" });
-      const { id: _fid } = window.PICKAXE.pickaxes[0];
-      fetch(`https://embed.pickaxeproject.com/axe/api/script/${_fid}`)
-        .then((e) => e.json())
-        .then(({ v: e }) => {
-          const t = `https://cdn.jsdelivr.net/gh/pickaxeproject/cdn@${e}/dist`;
-          if (!document.querySelector(`script[src="${t}/bundle.js"]`)) {
-            const s = document.createElement("script");
-            s.src = t + "/bundle.js";
-            s.defer = true;
-            document.head.appendChild(s);
-          }
-        });
-    </script>
-    <div id="pickaxe-inline-Casa_Virtudes_TT6SI"></div>
+    <div class="chat-container">
+      <iframe id="embed-preview-iframe" loading="eager" src="https://embed.pickaxeproject.com/axe?id=Casa_Virtudes_TT6SI&mode=embed_gold&host=beta&theme=custom&opacity=100&font_header=Real+Head+Pro&size_header=18&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=000000&c_ff=000000&c_fbd=FFFFFF&c_rb=000000&c_bb=FFFFFF&c_bt=FFFFFF&c_t=FFFFFF&s_ffo=100&s_rbo=100&s_bbo=100&s_f=box&s_b=outline&s_t=0.5&s_to=0.5&s_r=0" width="100%" height="600px" class="transition hover:translate-y-[-2px] hover:shadow-[0_6px_20px_0px_rgba(0,0,0,0.15)]" style="border:0.5px solid rgba(0, 0, 0, 1);transition:.3s;border-radius:10px;max-width:100%" frameBorder="0"></iframe>
+      <div id="pickaxe-inline-Casa_Virtudes_TT6SI"></div>
+    </div>
   </div>
   
   <!-- Footer -->
@@ -312,5 +292,7 @@
       spans[currentIndex].classList.add("active");
     }, 2600);
   </script>
+  
+ 
 </body>
 </html>
